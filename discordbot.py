@@ -31,7 +31,7 @@ async def slot(ctx):
         if i > 0:
             SlotResult += ' '
             
-        SlotResult += SlotList[i-1]
+        SlotResult += SlotList[i]
     
     await ctx.send(SlotResult)
     
