@@ -23,13 +23,13 @@ SlotWin = [
 @bot.command()
 async def slot(ctx):
     SlotList = list()
+    SlotResult = ' '
+    
     #random.randrange(SlotRange)
     for i in range(3):
         SlotStr = ":emoji_" + str(random.choice(SlotRange)) + ':'
         SlotList.append(SlotStr)
-        if i > 0:
-            SlotResult += ' '
-        SlotResult += str(SlotList[i])
+        SlotResult += ' ' + str(SlotList[i])
     
     await ctx.send(SlotResult)
     
