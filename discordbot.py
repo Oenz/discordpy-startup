@@ -13,8 +13,17 @@ async def on_command_error(ctx, error):
     await ctx.send(error_msg)
 
 
-#SlotRange = [ 1, 2, 3, 4, 5, 6, 12, 13, 14 ];
-SlotRange = [":grimacing:", ":smile:", ":sob:"];
+SlotRange = ["<:emoji_6:836508451420504124>"
+            ,"<:emoji_5:836507600458874942>"
+            ,"<:emoji_4:836506871032315924>"
+            ,"<:emoji_1:836151022946353162>"
+            ,"<:emoji_12:836862989318619137>"
+            ,"<:emoji_13:836863002166820896>"
+            ,"<:emoji_14:836956978860392479>"
+            ,"<:emoji_2:836503348601552896>"
+            ,"<:emoji_3:836504640123043870>"
+            ]
+
 SlotWin = [
     "https://tenor.com/view/%E3%81%8A%E3%82%81%E3%81%A7%E3%81%A8%E3%81%86-%E5%AC%89%E3%81%97%E3%81%84-%E3%82%AF%E3%83%A9%E3%83%83%E3%82%AB%E3%83%BC-%E3%81%8A%E7%A5%9D%E3%81%84-%E5%8F%AF%E6%84%9B%E3%81%84-gif-15780951"
     ,"https://tenor.com/view/%E3%81%8A%E3%82%81%E3%81%A7%E3%81%A8%E3%81%86-%E5%AC%89%E3%81%97%E3%81%84-%E7%B4%99%E5%90%B9%E9%9B%AA-%E3%81%8A%E7%A5%9D%E3%81%84-%E5%8F%AF%E6%84%9B%E3%81%84-gif-15876321"
@@ -29,7 +38,6 @@ async def slot(ctx):
     
     #random.randrange(SlotRange)
     for i in range(3):
-        #SlotStr = ":emoji_" + str(random.choice(SlotRange)) + ':'
         SlotStr = str(random.choice(SlotRange))
         SlotList.append(SlotStr)
         SlotResult += ' ' + str(SlotList[i])
