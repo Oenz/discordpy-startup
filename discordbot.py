@@ -27,9 +27,10 @@ async def slot(ctx):
     for i in range(3):
         SlotStr = ":emoji_" + str(random.choice(SlotRange)) + ':'
         SlotList.append(SlotStr)
-        SlotResult += ' ' + SlotList[i]
+        await ctx.send(i)
+        #SlotResult += ' ' + SlotList[i-1]
     
-    await ctx.send(SlotResult)
+    #await ctx.send(SlotResult)
     
     if SlotList[0] == SlotList[1] == SlotList[2]:
         await ctx.send(random.choice(SlotWin))
