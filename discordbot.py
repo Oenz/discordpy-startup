@@ -40,8 +40,7 @@ async def slot(ctx):
     
     #random.randrange(SlotRange)
     for i in range(3):
-        #SlotStr = str(random.choice(SlotRange))
-        SlotStr = str(SlotRange[3])
+        SlotStr = str(random.choice(SlotRange))
         SlotList.append(SlotStr)
         SlotResult += ' ' + str(SlotList[i])
     
