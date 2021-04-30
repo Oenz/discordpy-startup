@@ -18,9 +18,13 @@ SlotRange = 10;
 @bot.command()
 async def slot(ctx):
     SlotList = list()
-    SlotStr = ":emoji_" + str(random.randrange(SlotRange)) + ':'
-    SlotList.append(SlotStr)
     
-    await ctx.send(SlotList[0])
+    for i in range(3):
+        SlotStr = ":emoji_" + str(random.randrange(SlotRange)) + ':'
+        SlotList.append(SlotStr)
+    
+    SlotResult = SlotList[0] + ' ' + SlotList[1] + ' ' + SlotList[2]
+    
+    await ctx.send(SlotResult)
 
 bot.run(token)
