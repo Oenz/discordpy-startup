@@ -1,12 +1,9 @@
 from discord.ext import commands
 import os
 import traceback
-import discord
 
 bot = commands.Bot(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN']
-
-client = discord.Client()
 
 @bot.event
 async def on_command_error(ctx, error):
@@ -16,17 +13,7 @@ async def on_command_error(ctx, error):
 
 
 @bot.command()
-async def ping(ctx):
-    await ctx.send('pong')
-
-# メッセージ受信時に動作する処理
-@client.event
-async def on_message(message):
-    # メッセージ送信者がBotだった場合は無視する
-    if message.author.bot:
-        return
-    # 「/neko」と発言したら「にゃーん」が返る処理
-    if message.content == 'a':
-        await message.channel.send('にゃーん')
+async def slot(ctx):
+    await ctx.send(':smile:')
 
 bot.run(token)
