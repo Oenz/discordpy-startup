@@ -13,8 +13,11 @@ async def on_command_error(ctx, error):
     await ctx.send(error_msg)
 
 
+SlotRange = 10;
+    
 @bot.command()
 async def slot(ctx):
-    await ctx.send(random.randrange(10))
+    Slot1 = ':emoji_' + random.randrange(SlotRange) + ':'
+    await ctx.send(Slot1)
 
 bot.run(token)
