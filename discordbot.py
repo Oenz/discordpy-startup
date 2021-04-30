@@ -18,7 +18,7 @@ SlotRange = 10;
 @bot.command()
 async def slot(ctx):
     Slot1 = random.randrange(SlotRange)
-    Slot1Str = ':emoji_' + Slot1 + ':'
+    Slot1Str = ":emoji_" + str(Slot1) + ':'
     await ctx.send(Slot1)
     await ctx.send(Slot1Str)
 
