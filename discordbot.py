@@ -13,7 +13,7 @@ async def on_command_error(ctx, error):
     await ctx.send(error_msg)
 
 
-
+SlotRange = 10;
     
 @bot.command()
 async def slot(ctx):
