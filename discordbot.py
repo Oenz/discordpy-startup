@@ -1,6 +1,7 @@
 from discord.ext import commands
 import os
 import traceback
+import random
 
 bot = commands.Bot(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN']
@@ -14,6 +15,6 @@ async def on_command_error(ctx, error):
 
 @bot.command()
 async def slot(ctx):
-    await ctx.send(':smile:')
+    await ctx.send(random.randrange(10))
 
 bot.run(token)
