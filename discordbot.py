@@ -31,6 +31,8 @@ SlotWin = [
     ,"https://tenor.com/view/running-shrek-running-late-gif-13251013"
     ]
 
+SlotJackpot = [ "https://media.discordapp.net/attachments/415026071189323780/702809774122860584/partyparrot.gif" ]
+
 @bot.command()
 async def slot(ctx):
     SlotList = list()
@@ -38,13 +40,20 @@ async def slot(ctx):
     
     #random.randrange(SlotRange)
     for i in range(3):
-        SlotStr = str(random.choice(SlotRange))
+        #SlotStr = str(random.choice(SlotRange))
+        SlotStr = str(SlotRange[3])
         SlotList.append(SlotStr)
         SlotResult += ' ' + str(SlotList[i])
     
     await ctx.send(SlotResult)
     
     if SlotList[0] == SlotList[1] == SlotList[2]:
-        await ctx.send(random.choice(SlotWin))
+        if SlotList[0] == SlotRange[3]: #JACKPOT
+            await ctx.send("------------")
+            await ctx.send("|JACKPOT|")
+            await ctx.send("------------")
+            await ctx.send(random.choice(SlotJackpot))
+        else: #WIN
+            await ctx.send(random.choice(SlotWin))
 
 bot.run(token)
