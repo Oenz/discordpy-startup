@@ -38,13 +38,10 @@ SlotJackpot = [ "https://media.discordapp.net/attachments/415026071189323780/702
 
 @client.event
 async def on_message(message):
-    # 送信者がbotである場合は弾く
     if message.author.bot:
         return 
-    # メッセージの本文が 鳴いて だった場合
     if message.content == "GetId":
-        # 送信するメッセージをランダムで決める
-        await message.channel.send(id)
+        await message.channel.send("id")
 
 
 @bot.command()
