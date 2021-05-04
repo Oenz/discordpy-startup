@@ -43,6 +43,7 @@ def reset(userid, userscore):
 def get(userid):
     f = open('save.dat','rb')
     pickle.load(f)
+    return f
     
 
 @bot.command()
