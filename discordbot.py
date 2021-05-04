@@ -36,15 +36,6 @@ SlotWin = [
 
 SlotJackpot = [ "https://media.discordapp.net/attachments/415026071189323780/702809774122860584/partyparrot.gif" ]
 
-@client.event
-async def on_message(message):
-    if message.author.bot:
-        return 
-    await message.channel.send(message.author.id)
-    
-    
-
-
 @bot.command()
 async def slot(ctx):
     SlotList = list()
@@ -67,4 +58,8 @@ async def slot(ctx):
         else: #WIN
             await ctx.send(random.choice(SlotWin))
 
+async def getid(ctx):
+    await ctx.send("ID")
+    await ctx.send(ctx.author.id)
+    
 bot.run(token)
