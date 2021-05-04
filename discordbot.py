@@ -4,6 +4,8 @@ import traceback
 import random
 import discord
 
+client = discord.Client()
+
 bot = commands.Bot(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN']
 
@@ -33,6 +35,17 @@ SlotWin = [
     ]
 
 SlotJackpot = [ "https://media.discordapp.net/attachments/415026071189323780/702809774122860584/partyparrot.gif" ]
+
+@client.event
+async def on_message(message):
+    # 送信者がbotである場合は弾く
+    if message.author.bot:
+        return 
+    # メッセージの本文が 鳴いて だった場合
+    if message.content == "GetId":
+        # 送信するメッセージをランダムで決める
+        await message.channel.send(id)
+
 
 @bot.command()
 async def slot(ctx):
