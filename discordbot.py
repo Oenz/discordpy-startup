@@ -2,9 +2,7 @@ from discord.ext import commands
 import os
 import traceback
 import random
-import discord
-
-client = discord.Client()
+import pickle
 
 bot = commands.Bot(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN']
@@ -36,6 +34,17 @@ SlotWin = [
 
 SlotJackpot = [ "https://media.discordapp.net/attachments/415026071189323780/702809774122860584/partyparrot.gif" ]
 
+def reset(userid, userscore):
+    savedata = [userid, userscore]
+    f = open('save.dat','wb')
+    pickle.dump(savedata,f)
+    f.close
+    
+def get(userid):
+    f = open('save.dat','rb')
+    pickle.load(f)
+    
+
 @bot.command()
 async def slot(ctx):
     SlotList = list()
@@ -59,8 +68,9 @@ async def slot(ctx):
             await ctx.send(random.choice(SlotWin))
 
 @bot.command()
-async def getid(ctx):
-    await ctx.send("ID")
-    await ctx.send(ctx.author.id)
+async def userget(ctx):
+    user = ctx.author.id
+    reset(user, 0)
+    await ctx.send(get(user))
     
 bot.run(token)
