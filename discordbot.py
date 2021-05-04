@@ -40,8 +40,9 @@ SlotJackpot = [ "https://media.discordapp.net/attachments/415026071189323780/702
 async def on_message(message):
     if message.author.bot:
         return 
-    if message.content == "GetId":
-        await message.channel.send("id")
+    await message.channel.send(message.author.id)
+    
+    
 
 
 @bot.command()
