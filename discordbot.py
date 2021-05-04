@@ -6,7 +6,6 @@ import pickle
 
 bot = commands.Bot(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN']
-filename = "save.dat"
 
 @bot.event
 async def on_command_error(ctx, error):
@@ -37,14 +36,12 @@ SlotJackpot = [ "https://media.discordapp.net/attachments/415026071189323780/702
 
 def reset(userid, userscore):
     savedata = [userid, userscore]
-    f = open(filename,'wb')
-    pickle.dump(savedata,f)
-    f.close
+    with open('save.dat', mode='wb') as f:
+        pickle.dump(savedata, f)
     
 def get(userid):
-    f = open(filename,'rb')
-    pickle.load(f)
-    f.close
+    with open('save.dat', mode='rb') as f:
+        pickle.load(f)
     return f
     
 
