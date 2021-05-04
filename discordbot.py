@@ -58,6 +58,7 @@ async def slot(ctx):
         else: #WIN
             await ctx.send(random.choice(SlotWin))
 
+@bot.command()
 async def getid(ctx):
     await ctx.send("ID")
     await ctx.send(ctx.author.id)
