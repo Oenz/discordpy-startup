@@ -73,6 +73,7 @@ DiceRange = ["O","CHI","U","CO","MA","N"]
 async def dice(ctx):
     DiceList = list()
     DiceResult = ' '
+    DiceScore = 0
     for i in range(5):
         DiceStr = str(random.choice(DiceRange))
         DiceList.append(DiceStr)
@@ -80,20 +81,29 @@ async def dice(ctx):
     await ctx.send(DiceResult)
     if DiceList.count("U") >= 1 and DiceList.count("N") >= 1 and DiceList.count("CHI") >= 1:
         await ctx.send("***UNCHI***")
+        DiceScore += 1000
     if DiceList.count("U") >= 1 and DiceList.count("N") >= 1 and DiceList.count("CO") >= 1:
         await ctx.send("***UNCO***")
+        DiceScore += 1000
     if DiceList.count("MA") >= 1 and DiceList.count("N") >= 1 and DiceList.count("CO") >= 1:
         await ctx.send("***MANCO***")
+        DiceScore += 1000
     if DiceList.count("O") >= 1 and DiceList.count("U") >= 1 and DiceList.count("N") >= 1 and DiceList.count("CO") >= 1:
         await ctx.send("***OMANCO***")
+        DiceScore += 5000
     if DiceList.count("CHI") >= 1 and DiceList.count("N") >= 1 and DiceList.count("CO") >= 1:
         await ctx.send("***CHINCO***")
+        DiceScore += 1000
     if DiceList.count("CHI") >= 2 and DiceList.count("N") >= 2:
         await ctx.send("***CHINCHIN***")
+        DiceScore += 3000
     if DiceList.count("O") >= 1 and DiceList.count("CHI") >= 2 and DiceList.count("N") >= 2:
         await ctx.send("=========")
         await ctx.send("***OCHINCHIN***")
         await ctx.send("=========")
+        DiceScore += 10000
+    DiceScoreResult = "Score : " + str(DiceScore)
+    await ctx.send(DiceScoreResult)
    
     
 bot.run(token)
