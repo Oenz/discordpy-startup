@@ -67,6 +67,19 @@ async def slot(ctx):
         else: #WIN
             await ctx.send(random.choice(SlotWin))
 
+DiceRange = ["O","CHI","U","CO","MA","N"] 
+           
+@bot.command()
+async def dice(ctx):
+    DiceList = list()
+    for i in range(5):
+        DiceStr = str(random.choice(DiceRange))
+        DiceList.append(DiceStr)
+        DiceResult += ' ' + str(SlotList[i])
+    await ctx.send(DiceResult)
+    if SlotList.count("U") >=1 and SlotList.count("NN") >= 1 and SlotList.count("CO") >= 1:
+        await ctx.send("***UNCO***")
+    
 @bot.command()
 async def userget(ctx):
     user = ctx.author.id
