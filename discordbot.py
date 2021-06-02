@@ -72,6 +72,7 @@ DiceRange = ["O","CHI","U","CO","MA","N"]
 @bot.command()
 async def dice(ctx):
     DiceList = list()
+    DiceResult = ' '
     for i in range(5):
         DiceStr = str(random.choice(DiceRange))
         DiceList.append(DiceStr)
