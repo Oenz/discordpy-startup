@@ -78,7 +78,7 @@ async def dice(ctx):
         DiceList.append(DiceStr)
         DiceResult += ' ' + str(DiceList[i])
     await ctx.send(DiceResult)
-    if SlotList.count(DiceRange[0]) >= 1:
+    if DiceList.count("U") >= 1:
         await ctx.send("***UNCO***")
    
     
