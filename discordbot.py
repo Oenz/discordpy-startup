@@ -78,8 +78,22 @@ async def dice(ctx):
         DiceList.append(DiceStr)
         DiceResult += ' ' + str(DiceList[i])
     await ctx.send(DiceResult)
-    if DiceList.count("U") >= 1:
+    if DiceList.count("U") >= 1 and DiceList.count("N") >= 1 and DiceList.count("CHI") >= 1:
+        await ctx.send("***UNCHI***")
+    if DiceList.count("U") >= 1 and DiceList.count("N") >= 1 and DiceList.count("CO") >= 1:
         await ctx.send("***UNCO***")
+    if DiceList.count("MA") >= 1 and DiceList.count("N") >= 1 and DiceList.count("CO") >= 1:
+        await ctx.send("***MANCO***")
+    if DiceList.count("O") >= 1 and DiceList.count("U") >= 1 and DiceList.count("N") >= 1 and DiceList.count("CO") >= 1:
+        await ctx.send("***OMANCO***")
+    if DiceList.count("CHI") >= 1 and DiceList.count("N") >= 1 and DiceList.count("CO") >= 1:
+        await ctx.send("***CHINCO***")
+    if DiceList.count("CHI") >= 2 and DiceList.count("N") >= 2:
+        await ctx.send("***CHINCHIN***")
+    if DiceList.count("O") >= 1 and DiceList.count("CHI") >= 2 and DiceList.count("N") >= 2:
+        await ctx.send("=========")
+        await ctx.send("***OCHINCHIN***")
+        await ctx.send("=========")
    
     
 bot.run(token)
