@@ -106,7 +106,7 @@ async def dice(ctx):
     await ctx.send(DiceScoreResult)
     if DiceScore >= 10000: #JACKPOT
         await ctx.send(random.choice(BigHit))
-    else if DiceScore >= 5000:
+    elif DiceScore >= 5000:
         await ctx.send(random.choice(Hit))
    
     
