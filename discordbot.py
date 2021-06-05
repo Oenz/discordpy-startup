@@ -25,14 +25,14 @@ SlotRange = ["<:emoji_6:836508451420504124>"
             ,"<:emoji_3:836504640123043870>"
             ]
 
-SlotWin = [
+Hit = [
     "https://tenor.com/view/%E3%81%8A%E3%82%81%E3%81%A7%E3%81%A8%E3%81%86-%E5%AC%89%E3%81%97%E3%81%84-%E3%82%AF%E3%83%A9%E3%83%83%E3%82%AB%E3%83%BC-%E3%81%8A%E7%A5%9D%E3%81%84-%E5%8F%AF%E6%84%9B%E3%81%84-gif-15780951"
     ,"https://tenor.com/view/%E3%81%8A%E3%82%81%E3%81%A7%E3%81%A8%E3%81%86-%E5%AC%89%E3%81%97%E3%81%84-%E7%B4%99%E5%90%B9%E9%9B%AA-%E3%81%8A%E7%A5%9D%E3%81%84-%E5%8F%AF%E6%84%9B%E3%81%84-gif-15876321"
     ,"https://tenor.com/view/krol-gif-19996608"
     ,"https://tenor.com/view/running-shrek-running-late-gif-13251013"
     ]
 
-SlotJackpot = [ "https://media.discordapp.net/attachments/415026071189323780/702809774122860584/partyparrot.gif" ]
+BigHit = [ "https://media.discordapp.net/attachments/415026071189323780/702809774122860584/partyparrot.gif" ]
 
 def reset(userid, userscore):
     savedata = [userid, userscore]
@@ -63,9 +63,9 @@ async def slot(ctx):
             await ctx.send("------------")
             await ctx.send("|JACKPOT|")
             await ctx.send("------------")
-            await ctx.send(random.choice(SlotJackpot))
+            await ctx.send(random.choice(BigHit))
         else: #WIN
-            await ctx.send(random.choice(SlotWin))
+            await ctx.send(random.choice(Hit))
 
 DiceRange = ["O","CHI","U","CO","MA","N"] 
            
@@ -98,12 +98,16 @@ async def dice(ctx):
         await ctx.send("***CHINCHIN***")
         DiceScore += 3000
     if DiceList.count("O") >= 1 and DiceList.count("CHI") >= 2 and DiceList.count("N") >= 2:
-        await ctx.send("=========")
+        await ctx.send("**=========**")
         await ctx.send("***OCHINCHIN***")
-        await ctx.send("=========")
+        await ctx.send("**=========**")
         DiceScore += 10000
     DiceScoreResult = "Score : " + str(DiceScore)
     await ctx.send(DiceScoreResult)
+    if DiceScore >= 10000: #JACKPOT
+        await ctx.send(random.choice(BigHit))
+    else if DiceScore >= 5000:
+        await ctx.send(random.choice(Hit))
    
     
 bot.run(token)
