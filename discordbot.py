@@ -78,8 +78,8 @@ async def branchserver(ctx):
     
 @bot.command()
 async def dlp(ctx):
-    channel = bot.get_channel(911633308893454366)
-    channel.delete_channel()
+    channel = client.get_channel(911633308893454366)
+    await channel.delete()
     
 @bot.command(name='delete-channel', help='delete a channel with the specified name')
 async def delete_channel(ctx, channel_name):
