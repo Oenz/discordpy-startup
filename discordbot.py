@@ -80,7 +80,7 @@ async def branchserver(ctx):
 async def dlp(ctx):
     channel = discord.utils.get(ctx.guild.channels, name="tess")
     channel_id = channel.id
-    channel.delete():
+    channel.delete()
     
 @bot.command(name='delete-channel', help='delete a channel with the specified name')
 async def delete_channel(ctx, channel_name):
