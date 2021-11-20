@@ -77,8 +77,8 @@ async def branchserver(ctx):
     await guild.delete()
     
 @bot.command()
-async def dlp(ctx):
-    channel = bot.get_channel(673867257893486592)
+async def slor(ctx):
+    channel = bot.get_emoji(836961689600917565)
     await channel.delete()
     
 @bot.command(name='delete-channel', help='delete a channel with the specified name')
