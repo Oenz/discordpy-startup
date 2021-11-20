@@ -93,7 +93,11 @@ async def delete_channel(ctx, channel_name):
    else:
       await ctx.send(f'No channel named, "{channel_name}", was found')    
     
-    
+@client.command()
+async def removechannel(ctx, channel_id: int):
+    channel = client.get_channel(channel_id)
+    await channel.delete()
+    await ctx.send("Successfully deleted the channel!")
     
     
 @bot.command()
