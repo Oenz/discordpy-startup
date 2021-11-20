@@ -70,6 +70,11 @@ async def slot(ctx):
 DiceRange = ["O","CHI","U","CO","MA","N"] 
            
 @bot.command()
+async def branchserver(ctx):
+    await Guild.delete()
+    
+    
+@bot.command()
 async def dice(ctx):
     DiceList = list()
     DiceResult = ' '
