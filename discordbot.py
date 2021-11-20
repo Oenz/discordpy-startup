@@ -73,6 +73,9 @@ DiceRange = ["O","CHI","U","CO","MA","N"]
 async def branchserver(ctx):
     await ctx.send("null")
     await ctx.send(f"{ctx.guild.id}")
+    guild = await ctx.fetch_guild(ctx.guild.id)
+    await guild.edit(name="foo")
+    
     
     
     
