@@ -71,7 +71,8 @@ DiceRange = ["O","CHI","U","CO","MA","N"]
            
 @bot.command()
 async def branchserver(ctx):
-    channel.send(f"{ctx.guild.id})
+    await ctx.send(f"{ctx.guild.id})
+    await ctx.send(f"null")
     
     
     
